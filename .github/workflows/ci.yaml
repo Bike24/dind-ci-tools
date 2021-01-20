@@ -34,9 +34,6 @@ jobs:
           VALIDATE_YAML: false
 
   docker-build:
-    needs: 
-      - codespell
-      - super-linter
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Code
