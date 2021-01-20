@@ -26,19 +26,19 @@ Container image with tools which are useful for ci pipline jobs.
 Passing script with multiple commands
 
 ```bash
-docker run -v /path/to/your/script.sh:/data/commands.sh:ro bike24/dind-ci-tools
+docker run -v /path/to/your/script.sh:/data/commands.sh:ro bike24/ci-tools
 ```
 
 Passing script and GCP key-file
 
 ```bash
-docker run -v /path/to/your/script.sh:/data/commands.sh:ro -v /path/to/your/key-file.json:/data/gcp-key-file.json:ro bike24/dind-ci-tools
+docker run -v /path/to/your/script.sh:/data/commands.sh:ro -v /path/to/your/key-file.json:/data/gcp-key-file.json:ro bike24/ci-tools
 ```
 
 ### Interactive usage with your personal GCP Account
 
 ```bash
-docker run -it --rm -v /path/to/your/workspace:/data/ bike24/dind-ci-tools bash
+docker run -it --rm -v /path/to/your/workspace:/data/ bike24/ci-tools bash
 # authenticate and paste token
 $ gcloud auth application-default login
 
@@ -61,7 +61,7 @@ but you can also start the container at the beginning of your pipeline.
 Afterwards you can pass single commands to running container like:
 
 ```bash
-CONTAINER_NAME=dind-ci-tools
+CONTAINER_NAME=ci-tools
 # Start container
 docker run \
   --volume /path/to/your/workdir:/workspace:ro \
@@ -71,7 +71,7 @@ docker run \
   --rm \
   -t \
   --name $CONTAINER_NAME \
-  bike24/dind-ci-tools:latest /bin/bash
+  bike24/ci-tools:latest /bin/bash
 
 # Execute arbitrary commands
 docker exec $CONTAINER_NAME gcloud auth activate-service-account --key-file=/data/gcp-key-file.json
