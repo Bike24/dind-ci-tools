@@ -1,5 +1,3 @@
-FROM gcr.io/kaniko-project/executor:v1.3.0 AS kaniko
-
 FROM alpine:3.13.0
 
 ENV GCLOUD_SDK_VERSION 324.0.0
@@ -12,7 +10,6 @@ ENV YQ_BIN_VERSION v4.4.1
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
-COPY --from=kaniko /kaniko/executor /usr/local/bin/executor
 COPY entrypoint.sh entrypoint.sh
 COPY commands.sh /data/commands.sh
 COPY install.sh /tmp/install.sh
