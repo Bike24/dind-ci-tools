@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo " -------------"
+echo " --------------"
 echo "| GCLOUD INFO |"
-echo " -------------"
+echo " --------------"
 gcloud info
 
-echo " --------------------- "
-echo "| HELM CLIENT VERSION |"
-echo " --------------------- "
+echo " -------------- "
+echo "| HELM VERSION |"
+echo " -------------- "
 helm version
 echo ""
 
-echo " ----------------- "
-echo "| KUBECTL VERSION |"
-echo " ----------------- "
-kubectl version
+echo " ------------------------ "
+echo "| KUBECTL CLIENT VERSION |"
+echo " ------------------------ "
+kubectl version --client
 echo ""
 
 echo " ----------------- "
