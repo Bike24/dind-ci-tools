@@ -4,14 +4,14 @@ set -e
 set -x
 
 # add gkh user
-adduser -S dind-ci-tools dind-ci-tools
+adduser -S ci-tools ci-tools
 
 # install apk packages
 apk update
-apk --no-cache add ca-certificates docker gnupg mysql-client openssl
+apk --no-cache add ca-certificates gnupg openssl
 
-# install cloud_sql_proxy & kubectl
-gcloud components install -q beta cloud_sql_proxy kubectl
+# install kubectl
+gcloud components install -q beta kubectl
 
 # install helm
 curl --silent --show-error --fail --location --output get_helm.sh https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
@@ -40,5 +40,5 @@ chmod 755 /usr/local/bin/yq
 
 # set permissions
 mkdir -p /data
-chown dind-ci-tools /data /entrypoint.sh /data/commands.sh
+chown ci-tools /data /entrypoint.sh /data/commands.sh
 chmod +x /entrypoint.sh /data/commands.sh

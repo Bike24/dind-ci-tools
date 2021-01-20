@@ -5,14 +5,11 @@ Container image with tools which are useful for ci pipline jobs:
 Contents:
 
 * [gcloud](https://cloud.google.com/sdk/docs/)
-* [cloud_sql_proxy](https://github.com/GoogleCloudPlatform/cloudsql-proxy)
-* [docker](https://github.com/docker)
 * [gnupg](https://pkgs.alpinelinux.org/package/edge/main/x86_64/gnupg)
 * [helm](https://www.helm.sh)
 * [kaniko](https://github.com/GoogleContainerTools/kaniko)
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/kubectl/)
 * [kubeval](https://github.com/instrumenta/kubeval)
-* [mysql-client](https://pkgs.alpinelinux.org/package/edge/main/x86_64/mysql-client)
 * [SOPS](https://github.com/mozilla/sops)
 * [terraform](https://www.terraform.io/)
 * [yq](https://github.com/mikefarah/yq)
