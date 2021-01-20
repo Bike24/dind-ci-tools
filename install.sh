@@ -7,17 +7,17 @@ set -x
 adduser -S ci-tools ci-tools
 
 # install apk packages
-apk update
 apk --no-cache add ca-certificates gnupg openssl
-
-# install kubectl
-gcloud components install -q beta kubectl
 
 # install helm
 curl --silent --show-error --fail --location --output get_helm.sh https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
 chmod 700 get_helm.sh
 ./get_helm.sh --version "${HELM_VERSION}"
 rm get_helm.sh
+
+# install kubectl
+curl --silent --show-error --fail --location --output /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
+chmod 755 /usr/local/bin/kubectl
 
 # install kubeval
 curl --silent --show-error --fail --location --output /tmp/kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/download/"${KUBEVAL_VERSION}"/kubeval-linux-amd64.tar.gz

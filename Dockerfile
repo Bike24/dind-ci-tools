@@ -1,8 +1,9 @@
 FROM gcr.io/kaniko-project/executor:v1.3.0 AS kaniko
 
-FROM google/cloud-sdk:323.0.0-alpine
+FROM google/cloud-sdk:324.0.0-alpine
 
 ENV HELM_VERSION v3.5.0
+ENV KUBECTL_VERSION v1.20.2
 ENV KUBEVAL_VERSION 0.15.0
 ENV SOPS_VERSION v3.6.1
 ENV TERRAFORM_VERSION 0.14.4
