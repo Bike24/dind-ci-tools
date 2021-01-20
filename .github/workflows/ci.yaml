@@ -51,5 +51,4 @@ jobs:
         with:
           platforms: linux/amd64
           push: false
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+
