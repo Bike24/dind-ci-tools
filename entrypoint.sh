@@ -3,16 +3,19 @@
 set -e
 
 COMMAND="${1}"
+KEYSERVER1="hkp://ipv4.pool.sks-keyservers.net"
+KEYSERVER2="hkp://keys.gnupg.net"
+KEYSERVER3="hkp://keyserver.ubuntu.com:80"
 
 if [ -n "${GPG_PUB_KEYS}" ]; then
   for KEY in ${GPG_PUB_KEYS}; do
-    echo "Fetch ${KEY} from hkp://p80.pool.sks-keyservers.net:80"
-    if ! gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv "${KEY}"; then
-      echo "Fallback: Fetch ${KEY} from hkp://ipv4.pool.sks-keyservers.net"
-    elif ! gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv "${KEY}"; then
-        echo "2nd fallback: Fetch ${KEY} from hkp://pgp.mit.edu:80"
-    else 
-      gpg --keyserver hkp://pgp.mit.edu:80 --recv "${KEY}"
+    echo "Fetch ${KEY} from ${KEYSERVER1}"
+    if ! gpg --keyserver ${KEYSERVER1} --recv "${KEY}"; then
+      echo "Fallback: Fetch ${KEY} from ${KEYSERVER2}"
+      if ! gpg --keyserver ${KEYSERVER2} --recv "${KEY}"; then
+        echo "2nd fallback: Fetch ${KEY} from ${KEYSERVER3}"
+        gpg --keyserver ${KEYSERVER3} --recv "${KEY}"
+      fi
     fi
   done
 fi
@@ -20,5 +23,5 @@ fi
 if [ -n "${COMMAND}" ]; then
   "${COMMAND}"
 else
-  sh /data/commands.sh
+  bash /data/commands.sh
 fi
