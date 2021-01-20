@@ -20,7 +20,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          password: ${{ secrets.GHCR_TOKEN }}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -28,7 +28,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/bike24/dind-ci-tools:${{ github.run_number }}
-            ghcr.io/bike24/dind-ci-tools:latest
+            ghcr.io/bike24/ci-tools:${{ github.run_number }}
+            ghcr.io/bike24/ci-tools:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
