@@ -18,7 +18,7 @@ RUN chmod +x /tmp/install.sh && \
 
 VOLUME /data
 
-USER dind-ci-tools
+USER ci-tools
 
 RUN /tmp/helm-init.sh
 
