@@ -31,7 +31,7 @@ chmod 755 /usr/local/bin/sops
 
 # install terraform
 curl --silent --show-error --fail --location --output /tmp/terraform.zip https://releases.hashicorp.com/terraform/"${TERRAFORM_VERSION}"/terraform_"${TERRAFORM_VERSION}"_linux_amd64.zip
-unzip terraform_"${TERRAFORM_VERSION}"_linux_amd64.zip -d /usr/local/bin
+unzip /tmp/terraform.zip -d /usr/local/bin
 rm /tmp/terraform.zip
 
 # install yq
