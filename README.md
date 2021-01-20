@@ -1,8 +1,8 @@
 # ci-tools
 
-Container image with tools which are useful for ci pipline jobs:
+Container image with tools which are useful for ci pipline jobs.
 
-Contents:
+## Contents
 
 * [gcloud](https://cloud.google.com/sdk/docs/)
 * [gnupg](https://pkgs.alpinelinux.org/package/edge/main/x86_64/gnupg)
@@ -16,12 +16,12 @@ Contents:
 
 ## Adding changes to this repo
 
-* Use a fork of this repo
-* Add a PR
+* Create a [fork](https://guides.github.com/activities/forking/)
+* Add a [PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
 
 ## Usage
 
-### With CGP Service Account and key file
+### With GCP Service Account and key file
 
 Passing script with multiple commands
 
@@ -54,8 +54,11 @@ $ helm secrets install release /data/your/chart -f values.yaml -f secrets.myapp.
 ### CI/CD context
 
 Using this image from a CI/CD pipeline is very handy.
-It's recommended to start the container at the beginning of your pipeline.
-Afterwards one can pass single commands to running container.
+
+You might just want to use the installed binaries like kubectl or helm as commands
+but you can also start the container at the beginning of your pipeline.
+
+Afterwards you can pass single commands to running container like:
 
 ```bash
 CONTAINER_NAME=dind-ci-tools
