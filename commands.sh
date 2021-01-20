@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo " -------------"
+echo " --------------"
 echo "| GCLOUD INFO |"
-echo " -------------"
+echo " --------------"
 gcloud info
+
+echo " -------------- "
+echo "| HELM VERSION |"
+echo " -------------- "
+helm version
+echo ""
 
 echo " ------------------------ "
 echo "| KUBECTL CLIENT VERSION |"
 echo " ------------------------ "
 kubectl version --client
-echo ""
-
-echo " --------------------- "
-echo "| HELM CLIENT VERSION |"
-echo " --------------------- "
-helm version --client
 echo ""
 
 echo " ----------------- "
@@ -44,3 +44,4 @@ echo ""
 echo " ====================== "
 echo ""
 echo "To run a custom script, just mount it '--volume /your/script.sh:/data/commands.sh:ro'"
+echo ""
