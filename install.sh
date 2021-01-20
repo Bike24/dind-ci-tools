@@ -4,21 +4,20 @@ set -e
 set -x
 
 # add gkh user
-adduser -S dind-ci-tools dind-ci-tools
+adduser -S ci-tools ci-tools
 
 # install apk packages
 apk update
-apk --no-cache add ca-certificates docker gnupg mysql-client openssl
+apk --no-cache add ca-certificates gnupg openssl
 
-# install cloud_sql_proxy & kubectl
-gcloud components install -q beta cloud_sql_proxy kubectl
+# install kubectl
+gcloud components install -q beta kubectl
 
 # install helm
 curl --silent --show-error --fail --location --output get_helm.sh https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
 chmod 700 get_helm.sh
 ./get_helm.sh --version "${HELM_VERSION}"
 rm get_helm.sh
-helm plugin install https://github.com/futuresimple/helm-secrets.git
 
 # install kubeval
 curl --silent --show-error --fail --location --output /tmp/kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/download/"${KUBEVAL_VERSION}"/kubeval-linux-amd64.tar.gz
@@ -31,7 +30,7 @@ chmod 755 /usr/local/bin/sops
 
 # install terraform
 curl --silent --show-error --fail --location --output /tmp/terraform.zip https://releases.hashicorp.com/terraform/"${TERRAFORM_VERSION}"/terraform_"${TERRAFORM_VERSION}"_linux_amd64.zip
-unzip terraform_"${TERRAFORM_VERSION}"_linux_amd64.zip -d /usr/local/bin
+unzip /tmp/terraform.zip -d /usr/local/bin
 rm /tmp/terraform.zip
 
 # install yq
@@ -40,5 +39,5 @@ chmod 755 /usr/local/bin/yq
 
 # set permissions
 mkdir -p /data
-chown dind-ci-tools /data /entrypoint.sh /data/commands.sh
+chown ci-tools /data /entrypoint.sh /data/commands.sh
 chmod +x /entrypoint.sh /data/commands.sh
