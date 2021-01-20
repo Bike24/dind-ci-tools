@@ -17,18 +17,6 @@ echo " --------------------- "
 helm version --client
 echo ""
 
-echo " ---------------- "
-echo "| HELM REPO LIST |"
-echo " ---------------- "
-helm repo list
-echo ""
-
-echo " ------------------------- "
-echo "| CLOUD_SQL_PROXY VERSION |"
-echo " ------------------------- "
-cloud_sql_proxy -version
-echo ""
-
 echo " ----------------- "
 echo "| KUBEVAL VERSION |"
 echo " ----------------- "
