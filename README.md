@@ -7,7 +7,6 @@ Container image with tools which are useful for ci pipline jobs.
 * [gcloud](https://cloud.google.com/sdk/docs/)
 * [gnupg](https://pkgs.alpinelinux.org/package/edge/main/x86_64/gnupg)
 * [helm](https://www.helm.sh)
-* [kaniko](https://github.com/GoogleContainerTools/kaniko)
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/kubectl/)
 * [kubeval](https://github.com/instrumenta/kubeval)
 * [SOPS](https://github.com/mozilla/sops)
