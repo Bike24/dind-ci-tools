@@ -1,4 +1,4 @@
-# dind-ci-tools
+# ci-tools
 
 Container image with tools which are useful for ci pipline jobs:
 
