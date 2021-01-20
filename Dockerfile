@@ -20,6 +20,4 @@ VOLUME /data
 
 USER ci-tools
 
-RUN /tmp/helm-init.sh
-
 ENTRYPOINT ["/entrypoint.sh"]
