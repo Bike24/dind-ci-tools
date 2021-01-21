@@ -12,7 +12,7 @@ if [ -n "${GPG_PUB_KEYS}" ]; then
   for KEY in ${GPG_PUB_KEYS}; do
     gpg --batch --keyserver ${KEYSERVER1} --recv-keys "${KEY}" || \
     gpg --batch --keyserver ${KEYSERVER2} --recv-keys "${KEY}" || \
-    gpg --batch --keyserver ${KEYSERVER3} --recv-keys "${KEY}" || \ 
+    gpg --batch --keyserver ${KEYSERVER3} --recv-keys "${KEY}" || \
     gpg --batch --keyserver ${KEYSERVER4} --recv-keys "${KEY}" 
   done
 fi
