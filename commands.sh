@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 echo " --------------"
+echo "| DOCKER INFO |"
+echo " --------------"
+docker version
+echo ""
+
+echo " --------------"
 echo "| GCLOUD INFO |"
 echo " --------------"
 gcloud info

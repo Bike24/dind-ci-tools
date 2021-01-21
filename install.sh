@@ -6,14 +6,7 @@ set -ex
 adduser -S ci-tools ci-tools
 
 # install apk packages
-apk --no-cache add bash ca-certificates curl gnupg libc6-compat openssh-client openssl python3 py3-crcmod py3-openssl
-
-# install gcloud-sdk
-curl --silent --show-error --fail --location --output /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-"${GCLOUD_SDK_VERSION}"-linux-x86_64.tar.gz
-tar -C / -xf /tmp/google-cloud-sdk.tar.gz
-gcloud config set core/disable_usage_reporting true
-gcloud config set component_manager/disable_update_check true
-rm /tmp/google-cloud-sdk.tar.gz
+apk --no-cache add ca-certificates openssl
 
 # install helm
 curl --silent --show-error --fail --location --output get_helm.sh https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
