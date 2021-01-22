@@ -17,6 +17,12 @@ echo " -------------- "
 helm version
 echo ""
 
+echo " ---------------"
+echo "| KIND VERSION |"
+echo " ---------------"
+kind version
+echo ""
+
 echo " ------------------------ "
 echo "| KUBECTL CLIENT VERSION |"
 echo " ------------------------ "
