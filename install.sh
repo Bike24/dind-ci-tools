@@ -14,6 +14,10 @@ chmod 700 get_helm.sh
 ./get_helm.sh --version "${HELM_VERSION}"
 rm get_helm.sh
 
+# install kind
+curl --silent --show-error --fail --location --output /usr/local/bin/kind https://kind.sigs.k8s.io/dl/"${KIND_VERSION}"/kind-linux-amd64
+chmod +x /usr/local/bin/kind
+
 # install kubectl
 curl --silent --show-error --fail --location --output /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 chmod 755 /usr/local/bin/kubectl
